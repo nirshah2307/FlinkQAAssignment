@@ -2,13 +2,16 @@ package com.flink.enumeration;
 
 import com.flink.contracts.IWebElement;
 
-public enum SunscreensElementEnum implements IWebElement {
+/**
+ * SunscreenPage page objects
+ */
+public enum SunscreensPageElementEnum implements IWebElement {
         cart_button_div_xpath(Constants.cart_button_div_xpath),
         product_list_div_css(Constants.product_list_div_css);
 
         private final String locator_value;
 
-        SunscreensElementEnum(String locator_value) {
+        SunscreensPageElementEnum(String locator_value) {
             this.locator_value = locator_value;
         }
 

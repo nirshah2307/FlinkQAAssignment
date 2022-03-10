@@ -12,8 +12,8 @@ import org.openqa.selenium.Platform;
 import java.io.File;
 
 /**
+ * For generating extent report
  * @author Nirmal.Shah
- *
  */
 public class ExtentManager {
 

@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Test listener to handle multiple testNG events
  * @author Nirmal.Shah
  */
 public class TestListener implements ITestListener {

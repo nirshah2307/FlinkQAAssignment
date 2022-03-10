@@ -2,6 +2,9 @@ package com.flink.enumeration;
 
 import com.flink.contracts.IWebElement;
 
+/**
+ * Home page objects
+ */
 public enum HomePageElementEnum implements IWebElement {
         temperature_div(Constants.temperature_div_css),
         moisturizers_div(Constants.moisturizers_div_xpath),

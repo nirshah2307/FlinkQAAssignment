@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  * @author Nirmal.Shah
  */
 public class UserActionUtility {
-    private static final long WAIT_TIME_ELEMENT_SECS = 5;
+    private static final long WAIT_TIME_ELEMENT_SECS = 15;
     private static final long WAIT_MAX_TIME_ELEMENT_SECS = 30;
     private static final long PAGE_MAX_WAIT_TIME_SECS = 30;
 

@@ -4,6 +4,7 @@ import com.flink.contracts.IPageElementActivity;
 import com.flink.contracts.IWebElement;
 import com.flink.enumeration.HomePageElementEnum;
 import com.flink.utils.UserActionUtility;
+import com.flink.utils.Utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,23 +38,29 @@ public class HomePage implements IPageElementActivity {
 	@FindBy(how = How.CSS, using = HomePageElementEnum.Constants.temperature_div_css)
 	private WebElement temperature_div_css;
 
+	/**
+	 * Method to extract temperature from string
+	 * @return temperature in integer
+	 */
 	public int getTemperature(){
-		Pattern pattern = Pattern.compile("\\d+");
 		String temperature = UserActionUtility.getWebElementText(temperature_div_css);
-		Matcher matcher = pattern.matcher(temperature);
-		String val;
-		if(matcher.find())
-			return Integer.parseInt(matcher.group());
-		else
-			throw new NoSuchElementException("Temperature not exist");
+		return Utils.getIntegerFromString(temperature);
 	};
 
+	/**
+	 * Method to buy moisturizer
+	 * @return MoisturizerPage
+	 */
 	public MoisturizerPage buyMoisturizer(){
 		UserActionUtility.clickOnWebElement(moisturizers_div_xpath);
 		UserActionUtility.waitForPageLoad(driver);
 		return new MoisturizerPage(driver);
 	}
 
+	/**
+	 * Method to buy sunscreen
+	 * @return SunscreensPage
+	 */
 	public SunscreensPage buySunscreen(){
 		UserActionUtility.clickOnWebElement(sunscreens_div_xpath);
 		UserActionUtility.waitForPageLoad(driver);

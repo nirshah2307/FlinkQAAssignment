@@ -4,6 +4,7 @@ import org.openqa.selenium.NoSuchElementException;
 
 /**
  * contract need to be implemented by all the Pages only.
+ *
  */
 public interface IPageElementActivity {
 

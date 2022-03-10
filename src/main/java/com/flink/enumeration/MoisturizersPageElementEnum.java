@@ -2,6 +2,9 @@ package com.flink.enumeration;
 
 import com.flink.contracts.IWebElement;
 
+/**
+ * MoisturizersPage page objects
+ */
 public enum MoisturizersPageElementEnum implements IWebElement {
         cart_button_div_xpath(Constants.cart_button_div_xpath),
         product_list_div_css(Constants.product_list_div_css);

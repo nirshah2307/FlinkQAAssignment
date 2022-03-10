@@ -15,6 +15,8 @@ import java.time.format.DateTimeFormatterBuilder;
 import java.util.List;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Generic Utility class file
@@ -39,5 +41,19 @@ public class Utils {
                 log.error("Error Occurred while deleting file in " + LocAndFileDelcmd + " location.");
             }
         }
+    }
+
+    /**
+     * Method to get integer value from String
+     * @param value
+     * @return
+     */
+    public static int getIntegerFromString(String value){
+        Pattern pattern = Pattern.compile("\\d+");
+        Matcher matcher = pattern.matcher(value);
+        if(matcher.find())
+            return Integer.parseInt(matcher.group());
+        else
+            throw new NoSuchElementException("Temperature not exist");
     }
 }

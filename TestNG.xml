@@ -2,7 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Checkout End to End Test Suite" parallel = "tests" thread-count = "2">
     <parameter name="environment" value="production"/>
-
+    <!--listeners>
+        <listener class-name="com.flink.listeners.Retry"/>
+    </listeners-->
     <test name="E2ETest Chrome">
         <parameter name="browser" value="chrome"/>
         <classes>

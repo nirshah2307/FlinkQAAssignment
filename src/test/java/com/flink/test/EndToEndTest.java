@@ -11,6 +11,8 @@ import org.testng.annotations.Test;
 import testrunner.TestInitializer;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class EndToEndTest extends TestInitializer {
     MoisturizerPage moisturizerPage;
@@ -23,16 +25,18 @@ public class EndToEndTest extends TestInitializer {
         HomePage homePage = new HomePage(driver);
         int temperature = homePage.getTemperature();
         //check the temperature condition
+        Map<String,Integer> cart_products = new LinkedHashMap<String,Integer>();
         if(temperature< Constants.MOISTURIZERS_TEMP) {
             moisturizerPage = homePage.buyMoisturizer();
-            moisturizerPage.addMoisturizerToCart();
+            cart_products = moisturizerPage.addMoisturizerToCart();
             checkoutPage = moisturizerPage.clickOnCart();
         }
         else {
             sunscreensPage = homePage.buySunscreen();
-            sunscreensPage.addSunscreenToCart();
+            cart_products = sunscreensPage.addSunscreenToCart();
             checkoutPage = sunscreensPage.clickOnCart();
         }
+        checkoutPage.verifyCartProducts(cart_products);
         checkoutPage.clickOnPayWithCard().enterCreditCardDetails(testData.get("email"),testData.get("creditCardNumber"),testData.get("creditCardExpiry"),Integer.parseInt(testData.get("creditCardCVV")),testData.get("zip"));
         checkoutPage.clickOnElement(CheckoutPageElementEnum.submit_button_css);
         checkoutPage.waitForInvisibilityofFrame();

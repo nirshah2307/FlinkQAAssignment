@@ -2,6 +2,9 @@ package com.flink.enumeration;
 
 import com.flink.contracts.IWebElement;
 
+/**
+ * Confirmation page objects
+ */
 public enum ConfirmationPageElementEnum implements IWebElement {
         success_input_xpath(Constants.success_input_xpath);
 

@@ -2,6 +2,9 @@ package com.flink.enumeration;
 
 import com.flink.contracts.IWebElement;
 
+/**
+ * Checkout page objects
+ */
 public enum CheckoutPageElementEnum implements IWebElement {
         pay_button_xpath(Constants.payWithCC_button_xpath),
         email_input_css(Constants.email_input_css),
