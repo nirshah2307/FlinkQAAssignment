@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Checkout End to End Test Suite" parallel = "tests" thread-count = "2">
+    <parameter name="environment" value="production"/>
+
+    <test name="E2ETest Chrome">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.flink.test.EndToEndTest"/>
+        </classes>
+    </test>
+
+    <test name="E2ETest Firefox">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="com.flink.test.EndToEndTest"/>
+        </classes>
+    </test>
+</suite>
